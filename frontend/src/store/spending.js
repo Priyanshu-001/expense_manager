@@ -59,7 +59,8 @@ const spending={
 	},
 	getters:{
 		timeMetaData(state){
-			const {monthName:month,granularity,year} = state
+			let {month,granularity,year} = state
+			month+=1
 			return {month,granularity,year}
 		},
 		categoryList(state){
@@ -93,10 +94,20 @@ const spending={
 					arr.push({label,amt})
 				}
 				return arr
-		}		
+		},
+		
 
 	},
+	mutations:{
+		addDate(state,{year,month}){
+			state.month = Number(month) -1
+			state.year = Number(year)
+		}
+	},
 	actions:{ 
+		addDate(ctx,{year,month}){
+			ctx.commit('addDate',{year,month})
+		},
 		async totalSpending(ctx){
 			ctx.state.totalSpendingError = false
 			Axios.get('/totalspending')

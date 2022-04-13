@@ -52,11 +52,12 @@ const transactions={
 		}
 	},
 	actions:{
-		async getTransactions(ctx,{limit=5}){
+		async getTransactions(ctx,{limit}){
 			ctx.state.loading= true
 			try{
 				const {data} = await Axios.get('/transactions',{params:{limit:limit}})
 				ctx.commit('addTransactions',{transactions:data.transactions})
+
 			}
 			catch(err){
 				ctx.state.errorLoading = true
