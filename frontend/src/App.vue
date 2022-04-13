@@ -3,24 +3,18 @@
     
     <v-app-bar
       app
-      
-      light
-      dense
+      color="primary"
+      dark
     >
       <div class="d-flex align-center">
-        <v-icon> mdi-chart </v-icon> payment splitter
+        
+        <h1>
+        <v-icon color="yellow"  :size="45"> mdi-bitcoin </v-icon> 
+        Expense Manager
+      </h1>
       </div>
 
       <v-spacer></v-spacer>
-
-      <v-btn
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
-        text
-      >
-        <span class="mr-2">Latest Release</span>
-        <v-icon>mdi-open-in-new</v-icon>
-      </v-btn>
     </v-app-bar>
    <status-update/>
     <v-main>
