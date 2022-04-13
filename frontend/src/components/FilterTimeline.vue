@@ -5,6 +5,7 @@
 				Filter Transactions
 		</v-card-title>
 		<v-card-text>
+
 		<v-row>
 			<v-col cols="6" >
 			<v-text-field readonly
@@ -42,27 +43,40 @@
 		</v-card>
 </template>
 <script>
+import {mapActions} from 'vuex'
 export default{
 	name:'FilterTimeline',
 	data(){
 		return{
-			date:'2022-03',
+			date:'2022-04',
 			chooseDate:false,
-			possFreq: ['Weekly','Daily'],
+			possFreq: ['Weekly'],
 			freq:'Weekly'
+		}
+	},
+	methods:{
+		...mapActions({
+			'addDate': 'spending/addDate'
+		}),
+		...mapActions({
+			'getCatTransactions':'spending/getCatTransactions',
+			'getTotalTransactions':'spending/getTotalTransactions',
+		}),
+		refresh(){
+			this.getCatTransactions()
+			this.getTotalTransactions()
 		}
 	},
 	watch:{
 		date(){
 			this.chooseDate = false
-		}
+			const [year,month] = this.date.split('-')
+			this.addDate({year,month})
+			this.refresh()
+
+		},
+
 	},
-	computed:{
-		unix(){
-			const d = new Date(this.date)
-			return d
-		}
-	}
 }
 
 </script>

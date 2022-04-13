@@ -8,16 +8,19 @@
 </template>
 
 <script>
+import {mapState} from 'vuex'
+
 export default {
+
 	name:'CategoryChip',
 	props: ['name'],
 	computed:{
+		
+		...mapState('spending',['categories']),
 		category(){
-		const cat = this.$store.state.spending.categories[this.name]
-		if(cat)
-			return cat
-		return {icon:'cross'}
-		}
+		const cat = this.categories[this.name]
+		return cat
+		},
 	}
 }
 </script>

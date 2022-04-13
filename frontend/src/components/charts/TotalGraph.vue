@@ -27,9 +27,9 @@ import {mapGetters,mapState} from 'vuex'
 				totalTimeline: 'spending/totalTimeline',
 				totalList: 'spending/totalList',
 			}),
-			...mapState({
-				'spending': ['totalLoaded']
-			}),
+			...mapState(
+				'spending', ['totalLoaded']
+			),
 			subtitle(){
 				const {month, year,granularity} = this.timeData
 				return `${granularity} data ${month}/${year}`

@@ -37,10 +37,17 @@ import {mapState,mapActions} from 'vuex'
 		},
 		methods:{
 			...mapActions({
+			'getCatTransactions':'spending/getCatTransactions',
+			'getTotalTransactions':'spending/getTotalTransactions',
+			}),
+			...mapActions({
 				'getTransactions': 'transactions/getTransactions'
 			}),
 			load(){
-				return this.getTransactions({limit:5})
+			this.getTransactions({limit:5})
+			this.getCatTransactions()
+			this.getTotalTransactions()
+
 			}
 		},
 		mounted(){
