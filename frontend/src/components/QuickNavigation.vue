@@ -1,7 +1,7 @@
 <template>
 	<v-card class="mt-4">
 		<v-card-title>
-		<v-icon> </v-icon> Quick Navigation
+		<v-icon color="black"> mdi-clock-fast </v-icon> Quick Navigation
 		</v-card-title>
 		<v-card-text>
 			<div style="display:grid">
