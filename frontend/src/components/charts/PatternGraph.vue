@@ -9,7 +9,8 @@
           type="bar"
           height="100"
           auto-line-width
-           :gradient="['#f72047', '#ffd200', '#1feaea']"
+          auto-draw
+          :gradient="['#f72047', '#ffd200', '#1feaea']"
           :labels="categoryList"
           :show-labels="true"
         >
@@ -27,9 +28,9 @@ import {mapGetters,mapState} from 'vuex'
 				categoryList: 'spending/categoryList',
 				spendingList: 'spending/spendingList',
 			}),
-			...mapState({
-				'spending': ['catLoaded'],
-			}),
+			...mapState(
+				'spending', ['catLoaded'],
+			),
 			subtitle(){
 				const {month, year} = this.timeData
 				return `${month}/${year}`
