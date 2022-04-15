@@ -23,4 +23,10 @@ app.get('/heartbeat',(req,res)=>{
 })
 
 app.use('/api',api)
+
+app.use('/',express.static('./dist/'))
+app.get('*',(req,res)=>{
+	return res.sendFile(__dirname+'/dist/index.html')
+})
+
 app.listen(PORT,()=>console.log('Live'))
