@@ -1,6 +1,6 @@
 const {User} = require('../db.js')
 const crypto = require('crypto');
-const jwt = require('JsonWebToken')
+const jwt = require('jsonwebtoken')
 
 
 const getUser = async (req,res,next)=>{
