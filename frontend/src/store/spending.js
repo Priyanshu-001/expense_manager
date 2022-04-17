@@ -36,25 +36,11 @@ const spending={
 			'granularity': 'Weekly',
 
 			'catLoaded':true,
-			'catTotal':{
-				'fuel': 200,
-				'food':300,
-				'home':400,
-				'shopping':301,
-				'other': 500,
-			},
+			'catTotal':{},
 
 			'completeLoaded': false,
 			'totalLoaded':false,
-			'completeTotal':{
-				'week1': 510,
-				'week2':212,
-				'week3': 400,
-				'week5': 201,
-			}
-
-
-
+			'completeTotal':{}
 		}
 	},
 	getters:{
@@ -102,11 +88,29 @@ const spending={
 		addDate(state,{year,month}){
 			state.month = Number(month) -1
 			state.year = Number(year)
+		},
+		clearAll(state){
+		
+			state.totalSpending = null
+			state.totalSpendingError = false
+			state.month=3
+			state.year= 2022
+			state.granularity= 'Weekly'
+
+			state.catLoaded=true
+			state.catTotal={}
+
+			state.completeLoaded= false
+			state.totalLoaded=false
+			state.completeTotal={}
 		}
 	},
 	actions:{ 
 		addDate(ctx,{year,month}){
 			ctx.commit('addDate',{year,month})
+		},
+		clearAll(ctx){
+			ctx.commit('clearAll')
 		},
 		async totalSpending(ctx){
 			ctx.state.totalSpendingError = false

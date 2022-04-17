@@ -6,37 +6,7 @@ const transactions={
 			return {
 				loading:false,
 				errorLoading:false,
-				transactions:[
-				{		
-					id:12131,
-					item:'Hello',
-					price:2000,
-					category:'food'
-
-				},
-				{		
-					id:2000,
-					item:'bye',
-					price:2000,
-					category:'fuel'
-
-				},
-				{		
-					id:3131,
-					item:'bye',
-					price:2000,
-					category:'fuel'
-
-				},
-				{		
-					id:3232,
-					item:'bye',
-					price:2000,
-					category:'fuel'
-
-				},
-
-				]
+				transactions:[]
 			}
 	},
 	getters:{
@@ -49,9 +19,18 @@ const transactions={
 	mutations:{
 		addTransactions(state,{transactions}){
 			state.transactions = transactions
+		},
+		clearAll(state){
+			state.loading = false
+			state.errorLoading = false
+			state.transactions = []
 		}
+
 	},
 	actions:{
+		clearAll(ctx){
+			ctx.commit('clearAll')
+		},
 		async getTransactions(ctx,{limit}){
 			ctx.state.loading= true
 			try{

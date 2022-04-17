@@ -40,6 +40,8 @@
 		},
 		logout(ctx){
 			ctx.commit('logout')
+			ctx.dispatch('spending/clearAll',{},{root:true})
+			ctx.dispatch('transactions/clearAll',{},{root:true})
 			localStorage.removeItem('loggedIn')
 			localStorage.removeItem('_id')
 			localStorage.removeItem('JWT')
