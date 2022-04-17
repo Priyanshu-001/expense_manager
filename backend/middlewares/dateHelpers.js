@@ -6,7 +6,7 @@ const numberOfWeeks = (month,year)=>{
     return Math.ceil(days / 7)
 }
 const weekNumber = (date)=>{
-    const dated = new Date();
+    const dated = new Date(date);
     return (0 | dated.getDate() / 7)+1;    
 }
 module.exports = {daysInMonth,numberOfWeeks,weekNumber}
