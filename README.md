@@ -5,7 +5,7 @@
 - MongoDB
 
 ## GCP Deployment
-http://34.125.120.241:8080/  [Bug: needs to be refreshed after initial login to be useful]
+http://34.125.120.241:8080/  
 
 ## Local Deployment
 Backend requires 3 env variables
