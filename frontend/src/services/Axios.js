@@ -6,7 +6,14 @@ const Axios = axios.create({
       baseURL: BASE_URL,
       headers:{
         "Content-Type": "application/json",
-        "Authorization": getJWT()
       }
     })
+
+Axios.interceptors.request.use(config=>{
+
+    config.headers['Authorization'] = getJWT()
+    return config
+  },
+  err=>{ return Promise.reject(err)}
+  )
 export default Axios
