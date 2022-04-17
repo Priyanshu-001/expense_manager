@@ -12,7 +12,6 @@
 	<v-row>
 		<v-col cols="12">
 			<v-data-table
-			dense
 			:headers="headers"
 			:items="transactions"
 			:elevation="2"
