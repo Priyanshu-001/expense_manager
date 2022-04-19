@@ -15,7 +15,7 @@ Backend requires 3 env variables
 
 The variables must be stored in .env at backend
 
-for deployment in linux server
+for deployment in linux based OS
 
 ```
 cd frontend
